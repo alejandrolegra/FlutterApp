@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'OoohBaby',
       ),
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+      home: const LoginPage(),
     );
   }
 }
