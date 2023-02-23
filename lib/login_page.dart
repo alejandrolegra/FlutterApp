@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+
 import 'package:inoffensive/createAccount_page.dart';
 import 'package:inoffensive/forgotPassword_page.dart';
 import 'package:inoffensive/main_page.dart';
+
+import 'package:inoffensive/components/square_tile.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -49,9 +52,9 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
-            //Entry 1
+
             const SizedBox(height: 22),
-            //Entry 2
+
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40.0),
               child: Container(
@@ -73,77 +76,75 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
-            //Entry 2
+
             const SizedBox(height: 10),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40.0),
-              child:Row( mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  InkWell( 
-                    child: const Text('Forgor password?',
-                    style: TextStyle(
-                      color: Colors.white, 
-                        fontSize: 16),
-                    ),
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => forgotPassword_page()),
-                      );
-                    },
+              child: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+                InkWell(
+                  child: const Text(
+                    'Forgor password?',
+                    style: TextStyle(color: Colors.white, fontSize: 16),
                   ),
-                ]
-              ),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => forgotPassword_page()),
+                    );
+                  },
+                ),
+              ]),
             ),
             const SizedBox(height: 40),
 
-            //Button
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40.0),
-              child:SizedBox(height: 60, width: 600,
-                child: ElevatedButton(
-                  child: Text("LOGIN", 
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
+              child: SizedBox(
+                  height: 60,
+                  width: 600,
+                  child: ElevatedButton(
+                    child: Text(
+                      "LOGIN",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.white,
-                    elevation: 0, 
-                  ),
-                  onPressed: () {
-                    Navigator.push(
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.white,
+                      elevation: 0,
+                    ),
+                    onPressed: () {
+                      Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => main_page()),
-                    );
-                  },
-                )
-              ),
+                      );
+                    },
+                  )),
             ),
-            const SizedBox(height: 10),
 
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40.0),
-              child:Row( mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  InkWell( 
-                    child: const Text('CREATE ACCOUNT',
-                      style: TextStyle(
-                        color: Colors.blue, 
-                          fontSize: 20,
-                          fontWeight:FontWeight.bold),
-                    ),
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => createAccount_page()),
-                      );
-                    },
+              child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+                InkWell(
+                  child: const Text(
+                    'CREATE ACCOUNT',
+                    style: TextStyle(
+                        color: Colors.blue,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold),
                   ),
-                ]
-              ),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => createAccount_page()),
+                    );
+                  },
+                ),
+              ]),
             ),
           ]),
         ),
