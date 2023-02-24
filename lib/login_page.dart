@@ -20,133 +20,193 @@ class _LoginPageState extends State<LoginPage> {
       backgroundColor: Colors.grey[800],
       body: SafeArea(
         child: Center(
-          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-            const Text(
-              'Inoffensive',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 24,
-                color: Colors.white,
-              ),
-            ),
-            const SizedBox(height: 20),
-
-            //Entry 1
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40.0),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.transparent,
-                  border: Border.all(color: Colors.white),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: const Padding(
-                  padding: EdgeInsets.only(left: 20.0),
-                  child: TextField(
-                    style: TextStyle(color: Colors.white, fontSize: 20),
-                    decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: 'USERNAME',
-                        hintStyle: TextStyle(color: Colors.white)),
-                  ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: Center(
+                  child: Container(
+                      width: 400,
+                      height: 200,
+                      child: Image.asset('images/logo.png')),
                 ),
               ),
-            ),
 
-            const SizedBox(height: 22),
-
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40.0),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.transparent,
-                  border: Border.all(color: Colors.white),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: const Padding(
-                  padding: EdgeInsets.only(left: 20.0),
-                  child: TextField(
-                    obscureText: true,
-                    style: TextStyle(color: Colors.white, fontSize: 20),
-                    decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: 'PASSWORD',
-                        hintStyle: TextStyle(color: Colors.white)),
+              //Entry 1
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 40.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.transparent,
+                    border: Border.all(color: Colors.white),
+                    borderRadius: BorderRadius.circular(8),
                   ),
-                ),
-              ),
-            ),
-
-            const SizedBox(height: 10),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40.0),
-              child: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
-                InkWell(
-                  child: const Text(
-                    'Forgor password?',
-                    style: TextStyle(color: Colors.white, fontSize: 16),
-                  ),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => forgotPassword_page()),
-                    );
-                  },
-                ),
-              ]),
-            ),
-            const SizedBox(height: 40),
-
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40.0),
-              child: SizedBox(
-                  height: 60,
-                  width: 600,
-                  child: ElevatedButton(
-                    child: Text(
-                      "LOGIN",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
+                  child: const Padding(
+                    padding: EdgeInsets.only(left: 20.0),
+                    child: TextField(
+                      style: TextStyle(color: Colors.white, fontSize: 20),
+                      decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: 'USERNAME',
+                          hintStyle: TextStyle(color: Colors.white)),
                     ),
-                    style: ElevatedButton.styleFrom(
-                      primary: Colors.white,
-                      elevation: 0,
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 22),
+
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 40.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.transparent,
+                    border: Border.all(color: Colors.white),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: const Padding(
+                    padding: EdgeInsets.only(left: 20.0),
+                    child: TextField(
+                      obscureText: true,
+                      style: TextStyle(color: Colors.white, fontSize: 20),
+                      decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: 'PASSWORD',
+                          hintStyle: TextStyle(color: Colors.white)),
                     ),
-                    onPressed: () {
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 10),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 40.0),
+                child: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+                  InkWell(
+                    child: const Text(
+                      'Forgot password?',
+                      style: TextStyle(color: Colors.white, fontSize: 16),
+                    ),
+                    onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => main_page()),
+                        MaterialPageRoute(
+                            builder: (context) => forgotPassword_page()),
                       );
                     },
-                  )),
-            ),
-
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40.0),
-              child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-                InkWell(
-                  child: const Text(
-                    'CREATE ACCOUNT',
-                    style: TextStyle(
-                        color: Colors.blue,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold),
                   ),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => createAccount_page()),
-                    );
-                  },
+                ]),
+              ),
+              const SizedBox(height: 40),
+
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 40.0),
+                child: SizedBox(
+                    height: 60,
+                    width: 600,
+                    child: ElevatedButton(
+                      child: Text(
+                        "LOGIN",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.white,
+                        elevation: 0,
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => main_page()),
+                        );
+                      },
+                    )),
+              ),
+
+              const SizedBox(height: 50),
+
+              // or continue with
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Divider(
+                        thickness: 0.5,
+                        color: Colors.grey[400],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                      child: Text(
+                        'Or continue with',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Divider(
+                        thickness: 0.5,
+                        color: Colors.grey[400],
+                      ),
+                    ),
+                  ],
                 ),
-              ]),
-            ),
-          ]),
+              ),
+
+              const SizedBox(height: 50),
+
+              // google + apple sign in buttons
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  // google button
+                  SquareTile(imagePath: 'lib/images/google.png'),
+
+                  SizedBox(width: 25),
+
+                  // apple button
+                  SquareTile(imagePath: 'lib/images/apple.png')
+                ],
+              ),
+
+              const SizedBox(height: 50),
+
+              // not a member? register now
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Not a member?',
+                    style: TextStyle(color: Colors.white, fontSize: 16),
+                  ),
+                  const SizedBox(width: 4),
+                  InkWell(
+                    child: const Text(
+                      'Register now',
+                      style: TextStyle(
+                          color: Colors.blue,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16),
+                    ),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => createAccount_page()),
+                      );
+                    },
+                  ),
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );
