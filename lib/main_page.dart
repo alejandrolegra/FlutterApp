@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:inoffensive/navbar.dart';
+import 'package:inoffensive/shopcart_page.dart';
 import 'package:inoffensive/tree_page.dart';
 import 'package:inoffensive/shop_page.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:inoffensive/login_page.dart';
 
 class CustomScaffold extends StatelessWidget {
   final Widget body;
@@ -32,7 +32,15 @@ class CustomScaffold extends StatelessWidget {
           ),
         ),
         actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.shopping_cart))
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => shopcart_page()),
+              );
+            },
+            icon: const Icon(Icons.shopping_cart),
+          ),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -80,40 +88,33 @@ class _main_pageState extends State<main_page> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        pageTransitionsTheme: const PageTransitionsTheme(builders: {
-          TargetPlatform.android: CupertinoPageTransitionsBuilder(),
-        }),
+    return CustomScaffold(
+      body: const Center(
+        child: Text('Roulete Page'),
       ),
-      home: CustomScaffold(
-        body: const Center(
-          child: Text('Roulette Page Boys'),
-        ),
-        selectedIndex: _selectedIndex,
-        onItemTapped: (int index) {
-          setState(() {
-            _selectedIndex = index;
-          });
+      selectedIndex: _selectedIndex,
+      onItemTapped: (int index) {
+        setState(() {
+          _selectedIndex = index;
+        });
 
-          switch (index) {
-            case 0:
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => tree_page()),
-              );
-              break;
-            case 1:
-              break;
-            case 2:
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => shop_page()),
-              );
-              break;
-          }
-        },
-      ),
+        switch (index) {
+          case 0:
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => tree_page()),
+            );
+            break;
+          case 1:
+            break;
+          case 2:
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => shop_page()),
+            );
+            break;
+        }
+      },
     );
   }
 }

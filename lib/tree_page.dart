@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:inoffensive/main_page.dart';
 import 'package:inoffensive/shop_page.dart';
+import 'package:percent_indicator/percent_indicator.dart';
 
 class tree_page extends StatefulWidget {
   @override
@@ -13,8 +14,59 @@ class _tree_pageState extends State<tree_page> {
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
-      body: const Center(
-        child: Text('Tree Page'),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            children: [
+              const SizedBox(height: 35),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                child: Text(
+                  'EVERY COIN YOU SPENT ON INOFFENSIVE, WE WILL PLANT A TREE.',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 25,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                child: Text(
+                  'OXYGEN THE EARTH',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 25,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: Center(
+                  child: Container(child: Image.asset('images/leaf.png')),
+                ),
+              ),
+              const SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 31.0),
+                child: Center(
+                  child: LinearPercentIndicator(
+                    animation: true,
+                    animationDuration: 2000,
+                    lineHeight: 50,
+                    width: 330,
+                    percent: 0.7,
+                    progressColor: Color(0xFF2CFF5A),
+                    backgroundColor: Colors.white,
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
       ),
       selectedIndex: _selectedIndex,
       onItemTapped: (int index) {
