@@ -49,7 +49,21 @@ class _tree_pageState extends State<tree_page> {
                   child: Container(child: Image.asset('images/leaf.png')),
                 ),
               ),
-              const SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  Expanded(
+                    child: Container(),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 0),
+                    child: Positioned(
+                      right: 0,
+                      child: Image.asset('images/goal.png'),
+                    ),
+                  ),
+                ],
+              ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 31.0),
                 child: Center(
@@ -63,7 +77,47 @@ class _tree_pageState extends State<tree_page> {
                     backgroundColor: Colors.white,
                   ),
                 ),
-              )
+              ),
+              const SizedBox(height: 40),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'AT 1000',
+                    style: TextStyle(color: Colors.white, fontSize: 16),
+                  ),
+                  const SizedBox(width: 4),
+                  Text(
+                    'planted trees',
+                    style: TextStyle(
+                        shadows: [
+                          Shadow(
+                            color: Color(0xFF2CFF5A),
+                            blurRadius: 8,
+                          )
+                        ],
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16),
+                  ),
+                  const SizedBox(width: 4),
+                  Text(
+                    'we will release...',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 10),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: Center(
+                  child:
+                      Container(child: Image.asset('images/hoodierelease.png')),
+                ),
+              ),
             ],
           ),
         ),
