@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:inoffensive/navbar.dart';
+import 'package:inoffensive/tree_page.dart';
+import 'package:inoffensive/shop_page.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter/cupertino.dart';
 
-class main_page extends StatefulWidget {
-  @override
-  _main_pageState createState() => _main_pageState();
-}
+class CustomScaffold extends StatelessWidget {
+  final Widget body;
+  final int selectedIndex;
+  final Function(int) onItemTapped;
 
-class _main_pageState extends State<main_page> {
-  int _selectedIndex = 0;
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
+  CustomScaffold({
+    required this.body,
+    required this.selectedIndex,
+    required this.onItemTapped,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -47,24 +48,72 @@ class _main_pageState extends State<main_page> {
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             backgroundColor: Colors.white,
-            icon: Icon(Icons.shop),
+            icon: Icon(Icons.forest),
             label: 'TREE',
           ),
           BottomNavigationBarItem(
             backgroundColor: Colors.white,
-            icon: Icon(Icons.camera),
+            icon: Icon(Icons.casino_rounded),
             label: 'ROULETTE',
           ),
           BottomNavigationBarItem(
             backgroundColor: Colors.white,
-            icon: Icon(Icons.chat),
+            icon: Icon(Icons.shopping_bag),
             label: 'SHOP',
           ),
         ],
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
+        currentIndex: selectedIndex,
+        onTap: onItemTapped,
       ),
-      body: Center(),
+      body: body,
+    );
+  }
+}
+
+class main_page extends StatefulWidget {
+  @override
+  _main_pageState createState() => _main_pageState();
+}
+
+class _main_pageState extends State<main_page> {
+  int _selectedIndex = 1;
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData(
+        pageTransitionsTheme: const PageTransitionsTheme(builders: {
+          TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+        }),
+      ),
+      home: CustomScaffold(
+        body: const Center(
+          child: Text('Roulette Page Boys'),
+        ),
+        selectedIndex: _selectedIndex,
+        onItemTapped: (int index) {
+          setState(() {
+            _selectedIndex = index;
+          });
+
+          switch (index) {
+            case 0:
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => tree_page()),
+              );
+              break;
+            case 1:
+              break;
+            case 2:
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => shop_page()),
+              );
+              break;
+          }
+        },
+      ),
     );
   }
 }
