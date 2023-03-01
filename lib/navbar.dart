@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:inoffensive/login_page.dart';
 
 class NavBar extends StatelessWidget {
   @override
@@ -10,7 +11,7 @@ class NavBar extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: [
           UserAccountsDrawerHeader(
-            accountName: Text('Oflutter.com'),
+            accountName: Text('Inoffensive.com'),
             accountEmail: Text('example@gmail.com'),
             currentAccountPicture: CircleAvatar(
               child: ClipOval(
@@ -33,15 +34,15 @@ class NavBar extends StatelessWidget {
           ListTile(
             iconColor: Colors.white,
             textColor: Colors.white,
-            leading: Icon(Icons.favorite),
-            title: Text('Favorites'),
+            leading: Icon(Icons.language_rounded),
+            title: Text('Language'),
             onTap: () => null,
           ),
           ListTile(
             iconColor: Colors.white,
             textColor: Colors.white,
             leading: Icon(Icons.person),
-            title: Text('Friends'),
+            title: Text('Account'),
             onTap: () => null,
           ),
           ListTile(
@@ -56,6 +57,23 @@ class NavBar extends StatelessWidget {
             textColor: Colors.white,
             leading: Icon(Icons.notifications),
             title: Text('Request'),
+            onTap: () => null,
+            trailing: ClipOval(
+              child: Container(
+                color: Colors.red,
+                width: 20,
+                height: 20,
+                child: Center(
+                  child: Text(
+                    '3',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 12,
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ),
           Divider(color: Colors.grey[300]),
           ListTile(
@@ -78,7 +96,12 @@ class NavBar extends StatelessWidget {
             textColor: Colors.white,
             title: Text('Exit'),
             leading: Icon(Icons.exit_to_app),
-            onTap: () => null,
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => LoginPage()),
+              );
+            },
           ),
         ],
       ),

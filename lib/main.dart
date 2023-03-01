@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Inoffensive',
       theme: ThemeData(
-        fontFamily: 'OoohBaby',
+        fontFamily: 'Montserrat',
       ),
       debugShowCheckedModeBanner: false,
       home: const LoginPage(),
