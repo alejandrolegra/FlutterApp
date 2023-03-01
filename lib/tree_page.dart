@@ -70,7 +70,7 @@ class _tree_pageState extends State<tree_page> {
                   child: LinearPercentIndicator(
                     animation: true,
                     animationDuration: 2000,
-                    lineHeight: 50,
+                    lineHeight: 40,
                     width: 330,
                     percent: 0.7,
                     progressColor: Color(0xFF2CFF5A),

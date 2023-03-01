@@ -7,30 +7,180 @@ class shopcart_page extends StatefulWidget {
 
 class _shopcart_pageState extends State<shopcart_page> {
   // Creamos una lista de productos que se mostrarán en el carrito
-  List<String> products = ['Producto 1', 'Producto 2', 'Producto 3'];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[800],
       appBar: AppBar(
-        title: Text('Carrito de compras'),
+        backgroundColor: Colors.grey[800],
+        title: Text('My Cart'),
+        centerTitle: true,
       ),
-      body: ListView.builder(
-        itemCount: products.length,
-        itemBuilder: (BuildContext context, int index) {
-          return ListTile(
-            title: Text(products[index]),
-            trailing: IconButton(
-              icon: Icon(Icons.delete),
-              onPressed: () {
-                // Eliminamos el producto de la lista al hacer clic en el botón de eliminar
-                setState(() {
-                  products.removeAt(index);
-                });
-              },
+      body: Column(
+        children: [
+          SizedBox(height: 70.0),
+          Center(
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 10.0),
+              width: 325,
+              height: 100,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              child: Row(
+                children: [
+                  Image.asset(
+                    'images/hodcart.png',
+                    width: 103,
+                    height: 79,
+                  ),
+                  SizedBox(width: 10),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Black Hoodie',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ),
+                      ),
+                      Text(
+                        'Inoffensive Clothes',
+                        style: TextStyle(
+                          fontSize: 13,
+                          color: Colors.grey[600],
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(height: 20),
+                      Text(
+                        '\$75',
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.grey[600],
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
-          );
-        },
+          ),
+          SizedBox(height: 25.0),
+          Center(
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 20.0),
+              width: 325,
+              height: 45,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              child: Row(
+                children: [
+                  Text(
+                    "Offers",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
+                  SizedBox(width: 140),
+                  Expanded(
+                    child: TextField(
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: 'Add code',
+                        hintStyle: TextStyle(
+                          color: Colors.grey[600],
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(height: 25.0),
+          Center(
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 20.0),
+              width: 325,
+              height: 160,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+            ),
+          ),
+          SizedBox(height: 25.0),
+          Center(
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 20.0),
+              width: 325,
+              height: 45,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              child: Row(
+                children: [
+                  Text(
+                    "Address",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
+                  SizedBox(width: 50),
+                  Expanded(
+                    child: TextField(
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: 'Barcelona, Carrer...',
+                        hintStyle: TextStyle(
+                          color: Colors.grey[600],
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(height: 80.0),
+          Center(
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 20.0),
+              width: 325,
+              height: 45,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              child: Center(
+                child: Text(
+                  'Check Out',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18.0,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
