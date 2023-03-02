@@ -19,72 +19,34 @@ class _pay_pageState extends State<pay_page> {
         children: [
           SizedBox(height: 70.0),
           Center(
-            child: Stack(
-              children: [
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 10.0),
-                  width: 325,
-                  height: 100,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  child: Row(
-                    children: [
-                      Image.asset(
-                        'images/hodcart.png',
-                        width: 103,
-                        height: 79,
-                      ),
-                      SizedBox(width: 10),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'Black Hoodie',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black,
-                            ),
-                          ),
-                          Text(
-                            'Inoffensive Clothes',
-                            style: TextStyle(
-                              fontSize: 13,
-                              color: Colors.grey[600],
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(height: 20),
-                          Text(
-                            '\$75',
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.grey[600],
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-                Positioned(
-                  top: 5,
-                  right: 5,
-                  child: GestureDetector(
-                    onTap: () {
-                      // Coloque aquí la lógica para eliminar el contenedor
-                    },
-                    child: Icon(
-                      Icons.close,
-                      color: Colors.grey[600],
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 20.0),
+              width: 325,
+              height: 45,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              child: Row(
+                children: [
+                  Text(
+                    "UPI",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
                     ),
                   ),
-                ),
-              ],
+                  SizedBox(width: 237),
+                  Expanded(
+                    child: Icon(
+                      Icons.arrow_forward_ios,
+                      color: Colors.grey[600],
+                      size: 20,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
           SizedBox(height: 25.0),
@@ -100,24 +62,19 @@ class _pay_pageState extends State<pay_page> {
               child: Row(
                 children: [
                   Text(
-                    "Offers",
+                    "Debit Cards",
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                       color: Colors.black,
                     ),
                   ),
-                  SizedBox(width: 140),
+                  SizedBox(width: 160),
                   Expanded(
-                    child: TextField(
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: 'Add code',
-                        hintStyle: TextStyle(
-                          color: Colors.grey[600],
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                    child: Icon(
+                      Icons.arrow_forward_ios,
+                      color: Colors.grey[600],
+                      size: 20,
                     ),
                   ),
                 ],
@@ -129,7 +86,7 @@ class _pay_pageState extends State<pay_page> {
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 20.0),
               width: 325,
-              height: 160,
+              height: 256,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(10.0),
@@ -139,83 +96,68 @@ class _pay_pageState extends State<pay_page> {
                 children: [
                   SizedBox(height: 15),
                   Text(
-                    'Order Summary',
+                    'Credit Cards',
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 18,
                       fontWeight: FontWeight.bold,
                       color: Colors.black,
                     ),
                   ),
+                  SizedBox(height: 25),
+                  Container(
+                    padding: EdgeInsets.all(20),
+                    width: 296,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 1,
+                          blurRadius: 5,
+                          offset: Offset(0, 3),
+                        ),
+                      ],
+                    ),
+                  ),
                   SizedBox(height: 10),
                   Container(
-                    height: 1,
-                    color: Colors.grey[400],
+                    padding: EdgeInsets.all(20),
+                    width: 296,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 1,
+                          blurRadius: 5,
+                          offset: Offset(0, 3),
+                        ),
+                      ],
+                    ),
                   ),
-                  SizedBox(height: 15),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Order',
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Colors.grey[600],
-                          fontWeight: FontWeight.bold,
-                        ),
+                  SizedBox(height: 10),
+                  Center(
+                    child: Container(
+                      padding: EdgeInsets.all(20),
+                      width: 296,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 1,
+                            blurRadius: 5,
+                            offset: Offset(0, 3),
+                          ),
+                        ],
                       ),
-                      Text(
-                        '\$75',
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Colors.grey[600],
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 15),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Delivery',
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Colors.grey[600],
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        '\$5',
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Colors.grey[600],
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 15),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Total',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                        ),
-                      ),
-                      Text(
-                        '\$80',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
                 ],
               ),
@@ -232,33 +174,26 @@ class _pay_pageState extends State<pay_page> {
                 borderRadius: BorderRadius.circular(10.0),
               ),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    "Address",
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
+                  Icon(
+                    Icons.add,
+                    color: Colors.black,
                   ),
-                  SizedBox(width: 50),
-                  Expanded(
-                    child: TextField(
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: 'Barcelona, Carrer...',
-                        hintStyle: TextStyle(
-                          color: Colors.grey[600],
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                  SizedBox(width: 10.0),
+                  Text(
+                    'Add new method',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15.0,
+                      color: Colors.black,
                     ),
                   ),
                 ],
               ),
             ),
           ),
-          SizedBox(height: 80.0),
+          SizedBox(height: 50.0),
           Center(
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 20.0),
@@ -270,7 +205,7 @@ class _pay_pageState extends State<pay_page> {
               ),
               child: Center(
                 child: Text(
-                  'Check Out',
+                  'Pay Now',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 18.0,

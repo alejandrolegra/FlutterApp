@@ -97,7 +97,10 @@ class _cartlist_pageState extends State<cartlist_page> {
                             Icons.delete,
                             color: Colors.red,
                           )
-                        : SizedBox(width: 0),
+                        : Icon(
+                            Icons.arrow_back_ios,
+                            color: Colors.white,
+                          ),
                   ),
                 );
               },
