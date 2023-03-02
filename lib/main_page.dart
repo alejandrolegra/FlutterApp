@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:inoffensive/cartlist_page.dart';
 import 'package:inoffensive/navbar.dart';
 import 'package:inoffensive/shopcart_page.dart';
 import 'package:inoffensive/tree_page.dart';
@@ -36,7 +37,7 @@ class CustomScaffold extends StatelessWidget {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => shopcart_page()),
+                MaterialPageRoute(builder: (context) => cartlist_page()),
               );
             },
             icon: const Icon(Icons.shopping_cart),

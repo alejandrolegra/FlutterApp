@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:inoffensive/pay_page.dart';
 
-class shopcart_page extends StatefulWidget {
+class pay_page extends StatefulWidget {
   @override
-  _shopcart_pageState createState() => _shopcart_pageState();
+  _pay_pageState createState() => _pay_pageState();
 }
 
-class _shopcart_pageState extends State<shopcart_page> {
+class _pay_pageState extends State<pay_page> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[800],
       appBar: AppBar(
         backgroundColor: Colors.grey[800],
-        title: Text('My Cart'),
+        title: Text('Payment Methods'),
         centerTitle: true,
       ),
       body: Column(
@@ -260,33 +259,24 @@ class _shopcart_pageState extends State<shopcart_page> {
             ),
           ),
           SizedBox(height: 80.0),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 40.0),
-            child: SizedBox(
-              height: 45,
+          Center(
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 20.0),
               width: 325,
-              child: ElevatedButton(
+              height: 45,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              child: Center(
                 child: Text(
-                  "Check Out",
+                  'Check Out',
                   style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 20,
                     fontWeight: FontWeight.bold,
+                    fontSize: 18.0,
+                    color: Colors.black,
                   ),
                 ),
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.white,
-                  elevation: 10,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => pay_page()),
-                  );
-                },
               ),
             ),
           ),
