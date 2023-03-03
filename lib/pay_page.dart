@@ -6,6 +6,8 @@ class pay_page extends StatefulWidget {
 }
 
 class _pay_pageState extends State<pay_page> {
+  bool _isSelected1 = false;
+  bool _isSelected2 = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -86,7 +88,7 @@ class _pay_pageState extends State<pay_page> {
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 20.0),
               width: 325,
-              height: 256,
+              height: 280,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(10.0),
@@ -107,7 +109,7 @@ class _pay_pageState extends State<pay_page> {
                   Container(
                     padding: EdgeInsets.all(20),
                     width: 296,
-                    height: 50,
+                    height: 60,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(10),
@@ -120,12 +122,41 @@ class _pay_pageState extends State<pay_page> {
                         ),
                       ],
                     ),
+                    child: Row(
+                      children: [
+                        Image.asset(
+                          'images/credit.png',
+                          width: 40,
+                          height: 40,
+                        ),
+                        Text(
+                          'Axis Bank  xxxx68',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15.0,
+                            color: Colors.black,
+                          ),
+                        ),
+                        SizedBox(width: 15),
+                        Radio(
+                          value: true,
+                          activeColor: Colors.black,
+                          groupValue: _isSelected1,
+                          onChanged: (newValue) {
+                            setState(() {
+                              _isSelected1 = newValue!;
+                              _isSelected2 = false;
+                            });
+                          },
+                        ),
+                      ],
+                    ),
                   ),
                   SizedBox(height: 10),
                   Container(
                     padding: EdgeInsets.all(20),
                     width: 296,
-                    height: 50,
+                    height: 60,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(10),
@@ -135,6 +166,35 @@ class _pay_pageState extends State<pay_page> {
                           spreadRadius: 1,
                           blurRadius: 5,
                           offset: Offset(0, 3),
+                        ),
+                      ],
+                    ),
+                    child: Row(
+                      children: [
+                        Image.asset(
+                          'images/credit.png',
+                          width: 40,
+                          height: 40,
+                        ),
+                        Text(
+                          'Axis Bank  xxxx54',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15.0,
+                            color: Colors.black,
+                          ),
+                        ),
+                        SizedBox(width: 15),
+                        Radio(
+                          value: true,
+                          activeColor: Colors.black,
+                          groupValue: _isSelected2,
+                          onChanged: (newValue) {
+                            setState(() {
+                              _isSelected2 = newValue!;
+                              _isSelected1 = false;
+                            });
+                          },
                         ),
                       ],
                     ),
@@ -144,7 +204,7 @@ class _pay_pageState extends State<pay_page> {
                     child: Container(
                       padding: EdgeInsets.all(20),
                       width: 296,
-                      height: 50,
+                      height: 60,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(10),
@@ -154,6 +214,24 @@ class _pay_pageState extends State<pay_page> {
                             spreadRadius: 1,
                             blurRadius: 5,
                             offset: Offset(0, 3),
+                          ),
+                        ],
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.add,
+                            color: Colors.black,
+                          ),
+                          SizedBox(width: 10.0),
+                          Text(
+                            'Add New Card',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15.0,
+                              color: Colors.black,
+                            ),
                           ),
                         ],
                       ),

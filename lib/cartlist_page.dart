@@ -25,6 +25,20 @@ class _cartlist_pageState extends State<cartlist_page> {
     return CustomScaffold(
       body: Column(
         children: [
+          Container(
+            alignment: Alignment.centerLeft,
+            padding: EdgeInsets.only(left: 20, top: 10, bottom: 10),
+            child: IconButton(
+              icon: Icon(
+                Icons.arrow_back,
+                color: Colors.white,
+                size: 30,
+              ),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
+          ),
           Expanded(
             child: ListView.builder(
               itemCount: products.length,
@@ -33,14 +47,12 @@ class _cartlist_pageState extends State<cartlist_page> {
                 return Dismissible(
                   key: UniqueKey(),
                   onDismissed: (direction) {
-                    // Eliminamos el producto de la lista al deslizar el elemento hacia la izquierda
                     setState(() {
                       deleting = true;
                       products.removeAt(index);
                     });
                   },
-                  direction:
-                      DismissDirection.endToStart, // dirección de deslizamiento
+                  direction: DismissDirection.endToStart,
                   background: Container(
                     color: Colors.red,
                     child: Padding(
