@@ -34,10 +34,33 @@ class _article_pageState extends State<article_page> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset(
-                  'images/hoodie.png',
-                  width: 207,
-                  height: 289,
+                SizedBox(height: 50),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(width: 100),
+                      Image.asset(
+                        'images/hoodie.png',
+                        width: 207,
+                        height: 289,
+                      ),
+                      SizedBox(width: 100),
+                      Image.asset(
+                        'images/hoodie.png',
+                        width: 207,
+                        height: 289,
+                      ),
+                      SizedBox(width: 100),
+                      Image.asset(
+                        'images/hoodie.png',
+                        width: 207,
+                        height: 289,
+                      ),
+                      SizedBox(width: 100),
+                    ],
+                  ),
                 ),
                 SizedBox(height: 20),
                 Text(
@@ -181,7 +204,7 @@ class _article_pageState extends State<article_page> {
                     SizedBox(width: 20),
                   ],
                 ),
-                SizedBox(height: 40),
+                SizedBox(height: 25),
                 Center(
                   child: Container(
                     padding: EdgeInsets.symmetric(horizontal: 20.0),
