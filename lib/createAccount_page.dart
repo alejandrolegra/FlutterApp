@@ -6,6 +6,7 @@ class createAccount_page extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.grey[800],
       appBar: AppBar(
         backgroundColor: Colors.grey[800],

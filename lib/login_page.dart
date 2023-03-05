@@ -7,16 +7,19 @@ import 'package:inoffensive/TransicionPage.dart';
 import 'package:inoffensive/components/square_tile.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+ LoginPage({Key? key}) : super(key: key);
 
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.grey[800],
       body: SafeArea(
         child: Center(
@@ -36,50 +39,52 @@ class _LoginPageState extends State<LoginPage> {
 
             //Entry 1
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40.0),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.transparent,
-                  border: Border.all(color: Colors.white),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child:  Padding(
-                  padding: EdgeInsets.only(left: 20.0),
-                  child: TextField(
-                    style: TextStyle(color: Colors.white, fontSize: 20),
-                    decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: 'USERNAME',
-                        hintStyle: TextStyle(color: Colors.white.withOpacity(0.6))),
-                  ),
-                ),
-              ),
-            ),
+  padding: const EdgeInsets.symmetric(horizontal: 40.0),
+  child: Container(
+    decoration: BoxDecoration(
+      color: Colors.transparent,
+      border: Border.all(color: Colors.white),
+      borderRadius: BorderRadius.circular(8),
+    ),
+    child: Padding(
+      padding: EdgeInsets.only(left: 20.0),
+      child: TextField(
+        controller: _usernameController, // Agregado
+        style: TextStyle(color: Colors.white, fontSize: 20),
+        decoration: InputDecoration(
+          border: InputBorder.none,
+          hintText: 'USERNAME',
+          hintStyle: TextStyle(color: Colors.white.withOpacity(0.6))),
+        ),
+      ),
+    ),
+  ),
 
             const SizedBox(height: 22),
 
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40.0),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.transparent,
-                  border: Border.all(color: Colors.white),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.only(left: 20.0),
-                  child: TextField(
-                    obscureText: true,
-                    style: TextStyle(color: Colors.white, fontSize: 20),
-                    decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: 'PASSWORD',
-                        hintStyle: TextStyle(color: Colors.white.withOpacity(0.6)),
-                        ),
-                  ),
-                ),
-              ),
-            ),
+  padding: const EdgeInsets.symmetric(horizontal: 40.0),
+  child: Container(
+    decoration: BoxDecoration(
+      color: Colors.transparent,
+      border: Border.all(color: Colors.white),
+      borderRadius: BorderRadius.circular(8),
+    ),
+    child: Padding(
+      padding: EdgeInsets.only(left: 20.0),
+      child: TextField(
+        controller: _passwordController, // Agregado
+        obscureText: true,
+        style: TextStyle(color: Colors.white, fontSize: 20),
+        decoration: InputDecoration(
+          border: InputBorder.none,
+          hintText: 'PASSWORD',
+          hintStyle: TextStyle(color: Colors.white.withOpacity(0.6)),
+        ),
+      ),
+    ),
+  ),
+),
 
             const SizedBox(height: 10),
             Padding(
@@ -103,31 +108,50 @@ class _LoginPageState extends State<LoginPage> {
             const SizedBox(height: 40),
 
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40.0),
-                child: SizedBox(
-                    height: 60,
-                    width: 600,
-                child: ElevatedButton(
-                      child: Text(
-                        "LOGIN",
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
+  padding: const EdgeInsets.symmetric(horizontal: 40.0),
+  child: SizedBox(
+    height: 60,
+    width: 600,
+    child: ElevatedButton(
+      child: Text(
+        "LOGIN",
+        style: TextStyle(
+          color: Colors.black,
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      style: ElevatedButton.styleFrom(
+        primary: Colors.white,
+        elevation: 10,
+      ),
+      onPressed: () {
+        if (_usernameController.text.isEmpty || _passwordController.text.isEmpty) {
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: Text('Error'),
+                content: Text('Please enter a username and password.'),
+                actions: [
+                  TextButton(
+                    child: Text('OK',style: TextStyle(fontWeight: FontWeight.bold),),
+                    onPressed: () => Navigator.pop(context),
                   ),
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.white,
-                    elevation: 10, 
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => TransicionPage()),
-                    );
-                  },
-                    )),
-              ),
+                ],
+              );
+            },
+          );
+        } else {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => TransicionPage()),
+          );
+        }
+      },
+    ),
+  ),
+),
 
               const SizedBox(height: 50),
 

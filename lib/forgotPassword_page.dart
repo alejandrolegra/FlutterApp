@@ -4,6 +4,7 @@ class forgotPassword_page extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: Colors.grey[800],
         title: const Text('Restablecer contraseña'),
