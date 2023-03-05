@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:inoffensive/login_page.dart';
 
 class createAccount_page extends StatelessWidget {
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmpasswordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,6 +42,7 @@ class createAccount_page extends StatelessWidget {
                 child: Padding(
                   padding: EdgeInsets.only(left: 20.0),
                   child: TextField(
+                    controller: _usernameController,
                     style: TextStyle(color: Colors.white, fontSize: 20),
                     decoration: InputDecoration(
                         border: InputBorder.none,
@@ -62,6 +66,7 @@ class createAccount_page extends StatelessWidget {
                 child: Padding(
                   padding: EdgeInsets.only(left: 20.0),
                   child: TextField(
+                    controller: _passwordController,
                     obscureText: true,
                     style: TextStyle(color: Colors.white, fontSize: 20),
                     decoration: InputDecoration(
@@ -86,6 +91,7 @@ class createAccount_page extends StatelessWidget {
                 child: Padding(
                   padding: EdgeInsets.only(left: 20.0),
                   child: TextField(
+                    controller: _confirmpasswordController,
                     obscureText: true,
                     style: TextStyle(color: Colors.white, fontSize: 20),
                     decoration: InputDecoration(
@@ -118,13 +124,44 @@ class createAccount_page extends StatelessWidget {
                     elevation: 10, 
                   ),
                   onPressed: () {
-                        Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => LoginPage()),
-                      );
-                },
-                    )),
+        // ignore: unrelated_type_equality_checks
+        if (_usernameController.text.isEmpty || _passwordController.text.isEmpty || _confirmpasswordController.text.isEmpty || _passwordController.text != _confirmpasswordController.text) {
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: Text('Error'),
+                content: Text('Please check your credentials.'),
+                actions: [
+                  TextButton(
+                    child: Text('OK',style: TextStyle(fontWeight: FontWeight.bold),),
+                    onPressed: () => Navigator.pop(context),
+                  ),
+                ],
+              );
+            },
+          );
+        } else {
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: Text('Done'),
+                content: Text('Your account has been created'),
+                actions: [
+                  TextButton(
+                    child: Text('OK',style: TextStyle(fontWeight: FontWeight.bold),),
+                    onPressed: () => Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => LoginPage()),
+          ),
+                  ),
+                ],
+              );
+            },);
+        }
+  },
+  )),
               ),
           ]),
         ),

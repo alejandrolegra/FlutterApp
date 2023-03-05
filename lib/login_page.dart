@@ -49,7 +49,7 @@ class _LoginPageState extends State<LoginPage> {
     child: Padding(
       padding: EdgeInsets.only(left: 20.0),
       child: TextField(
-        controller: _usernameController, // Agregado
+        controller: _usernameController,
         style: TextStyle(color: Colors.white, fontSize: 20),
         decoration: InputDecoration(
           border: InputBorder.none,
@@ -73,7 +73,7 @@ class _LoginPageState extends State<LoginPage> {
     child: Padding(
       padding: EdgeInsets.only(left: 20.0),
       child: TextField(
-        controller: _passwordController, // Agregado
+        controller: _passwordController, 
         obscureText: true,
         style: TextStyle(color: Colors.white, fontSize: 20),
         decoration: InputDecoration(
@@ -92,7 +92,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
                   InkWell( 
                     child: const Text(
-                      'I forgor',
+                      'Forgot password',
                       style: TextStyle(color: Colors.white, fontSize: 16),
                     ),
                     onTap: () {

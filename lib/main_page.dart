@@ -33,6 +33,7 @@ class CustomScaffold extends StatelessWidget {
             width: 200.0,
           ),
         ),
+        
         actions: [
           IconButton(
             onPressed: () {
@@ -58,7 +59,7 @@ class CustomScaffold extends StatelessWidget {
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             backgroundColor: Colors.white,
-            icon: Icon(Icons.forest),
+            icon: Icon(Icons.forest_rounded),
             label: 'TREE',
           ),
           BottomNavigationBarItem(
@@ -68,7 +69,7 @@ class CustomScaffold extends StatelessWidget {
           ),
           BottomNavigationBarItem(
             backgroundColor: Colors.white,
-            icon: Icon(Icons.shopping_bag),
+            icon: Icon(Icons.shopping_bag_rounded),
             label: 'SHOP',
           ),
         ],
@@ -92,6 +93,7 @@ class _main_pageState extends State<main_page> {
   int se = 0;
   int counter = 1;
   String randomHood = "";
+  Color hoodieColors = Colors.transparent;
 
   void _toggleBox() {
     setState(() {
@@ -104,21 +106,27 @@ class _main_pageState extends State<main_page> {
     final randomNumber = random.nextInt(101);
     if(randomNumber >= 0 && randomNumber < 5){
       randomHood='images/hood2t.png';
+      hoodieColors = Colors.yellow;
     }
     else if(randomNumber >= 5 && randomNumber < 22.5){
       randomHood='images/hood1t.png';
+      hoodieColors = Colors.purple;
     }
     else if(randomNumber >= 22.5 && randomNumber < 40){
       randomHood='images/hood6t.png';
+      hoodieColors = Colors.purple;
     }
     else if(randomNumber >= 40 && randomNumber < 60){
       randomHood='images/hood5t.png';
+      hoodieColors = Colors.blue;
     }
     else if(randomNumber >= 60 && randomNumber < 80){
       randomHood='images/hood4t.png';
+      hoodieColors = Colors.blue;
     }
     else if(randomNumber >= 80){
       randomHood='images/hood3t.png';
+      hoodieColors = Colors.blue;
     }
     return randomHood;
   }
@@ -129,7 +137,7 @@ class _main_pageState extends State<main_page> {
       counter = counter + 1;
       if(counter%2==0){
         _buttonEnabled = false;
-        se = 2;
+        se = 1;
       }
       else{
         se = 0;
@@ -168,9 +176,11 @@ class _main_pageState extends State<main_page> {
               height: 200.0,
               decoration: BoxDecoration(
                 image: DecorationImage(image: _isOpen ? AssetImage(randomHood) : AssetImage('images/hoodierelease.png'),),
-                borderRadius: BorderRadius.circular(
-                  20.0
-                ),
+                borderRadius: BorderRadius.circular(30.0),
+                border: Border.all(
+                  color: _isOpen ? hoodieColors : Colors.transparent,
+                  width: 4,
+                )
               ),
             ),
           ),ElevatedButton(
@@ -199,13 +209,22 @@ class _main_pageState extends State<main_page> {
                     Padding(padding: const EdgeInsets.symmetric(horizontal: 0.0),
                       child: Container(width: double.infinity, height: 127.9,
                       color: Color(0xFF333333),
-                      child: Row(children: [
-                        SizedBox(width: 15), 
-                        Image.asset('images/hood2.png'),
+                      child: Row(children: [ 
+                        const SizedBox(width: 15),
+                        Tooltip(
+                          message: '5%',
+                          child: Image.asset('images/hood2.png'),
+                        ),
+                        SizedBox(width: 30),
+                        Tooltip(
+                          message: '17.5%',
+                          child: Image.asset('images/hood1.png'),
+                        ),
                         SizedBox(width: 30), 
-                        Image.asset('images/hood1.png'),
-                        SizedBox(width: 30), 
-                        Image.asset('images/hood6.png'),
+                        Tooltip(
+                          message: '17.5%',
+                          child: Image.asset('images/hood6.png'),
+                        ),
                       ]),
                       ),
                     ),
@@ -214,11 +233,20 @@ class _main_pageState extends State<main_page> {
                       color: Color(0xFF333333),
                       child: Row(children: [
                         SizedBox(width: 15), 
-                        Image.asset('images/hood5.png'),
+                        Tooltip(
+                          message: '20%',
+                          child: Image.asset('images/hood5.png'),
+                        ),
                         SizedBox(width: 30), 
-                        Image.asset('images/hood4.png'),
+                        Tooltip(
+                          message: '20%',
+                          child: Image.asset('images/hood4.png'),
+                        ),
                         SizedBox(width: 30), 
-                        Image.asset('images/hood3.png'),
+                        Tooltip(
+                          message: '20%',
+                          child: Image.asset('images/hood3.png'),
+                        ),
                       ]),
                       ),
                     ),

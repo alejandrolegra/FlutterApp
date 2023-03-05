@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 
+import 'login_page.dart';
+
 class forgotPassword_page extends StatelessWidget {
+final TextEditingController _emailController = TextEditingController();
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: Colors.grey[800],
-        title: const Text('Restablecer contraseña'),
+        title: const Text('Refresh password'),
       ),
       backgroundColor: Colors.grey[800],
       body: SafeArea(
@@ -46,6 +51,7 @@ class forgotPassword_page extends StatelessWidget {
                 child: Padding(
                   padding: EdgeInsets.only(left: 20.0),
                   child: TextField(
+                    controller: _emailController, // 
                     style: TextStyle(color: Colors.white, fontSize: 20),
                     decoration: InputDecoration(
                         border: InputBorder.none,
@@ -77,7 +83,41 @@ class forgotPassword_page extends StatelessWidget {
                     elevation: 10, 
                   ),
                   onPressed: () {
-                   null;
+                   if (_emailController.text.isEmpty) {
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: Text('Error'),
+                content: Text('Please enter your email.'),
+                actions: [
+                  TextButton(
+                    child: Text('OK',style: TextStyle(fontWeight: FontWeight.bold),),
+                    onPressed: () => Navigator.pop(context),
+                  ),
+                ],
+              );
+            },
+          );
+        } else {
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: Text('Done'),
+                content: Text('We have sent you an email to refresh your password'),
+                actions: [
+                  TextButton(
+                    child: Text('OK',style: TextStyle(fontWeight: FontWeight.bold),),
+                    onPressed: () => Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => LoginPage()),
+          ),
+                  ),
+                ],
+              );
+            },);
+        }
                   },
                     )),
               ),

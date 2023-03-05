@@ -22,7 +22,7 @@ class _tree_pageState extends State<tree_page> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: Text(
-                  'EVERY COIN YOU SPENT ON INOFFENSIVE, WE WILL PLANT A TREE.',
+                  'ALL THE MONEY YOU SPEND ON INOFFENSIVE WILL BE USED TO PLANT TREES.',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.white,
