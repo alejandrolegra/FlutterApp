@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:inoffensive/cartlist_page.dart';
 
 import 'package:inoffensive/navbar.dart';
 import 'package:inoffensive/shopcart_page.dart';
@@ -33,13 +34,12 @@ class CustomScaffold extends StatelessWidget {
             width: 200.0,
           ),
         ),
-        
         actions: [
           IconButton(
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => shopcart_page()),
+                MaterialPageRoute(builder: (context) => cartlist_page()),
               );
             },
             icon: const Icon(Icons.shopping_cart),
@@ -101,31 +101,26 @@ class _main_pageState extends State<main_page> {
     });
   }
 
-  String randomhoodGenerator(){
+  String randomhoodGenerator() {
     final random = Random();
     final randomNumber = random.nextInt(101);
-    if(randomNumber >= 0 && randomNumber < 5){
-      randomHood='images/hood2t.png';
+    if (randomNumber >= 0 && randomNumber < 5) {
+      randomHood = 'images/hood2t.png';
       hoodieColors = Colors.yellow;
-    }
-    else if(randomNumber >= 5 && randomNumber < 22.5){
-      randomHood='images/hood1t.png';
+    } else if (randomNumber >= 5 && randomNumber < 22.5) {
+      randomHood = 'images/hood1t.png';
       hoodieColors = Colors.purple;
-    }
-    else if(randomNumber >= 22.5 && randomNumber < 40){
-      randomHood='images/hood6t.png';
+    } else if (randomNumber >= 22.5 && randomNumber < 40) {
+      randomHood = 'images/hood6t.png';
       hoodieColors = Colors.purple;
-    }
-    else if(randomNumber >= 40 && randomNumber < 60){
-      randomHood='images/hood5t.png';
+    } else if (randomNumber >= 40 && randomNumber < 60) {
+      randomHood = 'images/hood5t.png';
       hoodieColors = Colors.blue;
-    }
-    else if(randomNumber >= 60 && randomNumber < 80){
-      randomHood='images/hood4t.png';
+    } else if (randomNumber >= 60 && randomNumber < 80) {
+      randomHood = 'images/hood4t.png';
       hoodieColors = Colors.blue;
-    }
-    else if(randomNumber >= 80){
-      randomHood='images/hood3t.png';
+    } else if (randomNumber >= 80) {
+      randomHood = 'images/hood3t.png';
       hoodieColors = Colors.blue;
     }
     return randomHood;
@@ -135,11 +130,10 @@ class _main_pageState extends State<main_page> {
     setState(() {
       randomhoodGenerator();
       counter = counter + 1;
-      if(counter%2==0){
+      if (counter % 2 == 0) {
         _buttonEnabled = false;
         se = 1;
-      }
-      else{
+      } else {
         se = 0;
       }
       _toggleBox();
@@ -156,101 +150,123 @@ class _main_pageState extends State<main_page> {
   Widget build(BuildContext context) {
     return CustomScaffold(
       body: Column(
-        children: [const Padding(padding: EdgeInsets.only(top:20.0),
-        child: Align( alignment: Alignment.center,
-          child: Text(
-            'LOOT CASE', 
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 24.0,
-              fontWeight: FontWeight.bold,
+        children: [
+          const Padding(
+            padding: EdgeInsets.only(top: 20.0),
+            child: Align(
+              alignment: Alignment.center,
+              child: Text(
+                'LOOT CASE',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ),
-          ),
-          ),
           ),
           const SizedBox(height: 20.0),
           GestureDetector(
             child: AnimatedContainer(
-              duration:  Duration(milliseconds: 500), 
-              width: 230.0, 
+              duration: Duration(milliseconds: 500),
+              width: 230.0,
               height: 200.0,
               decoration: BoxDecoration(
-                image: DecorationImage(image: _isOpen ? AssetImage(randomHood) : AssetImage('images/hoodierelease.png'),),
-                borderRadius: BorderRadius.circular(30.0),
-                border: Border.all(
-                  color: _isOpen ? hoodieColors : Colors.transparent,
-                  width: 4,
-                )
-              ),
+                  image: DecorationImage(
+                    image: _isOpen
+                        ? AssetImage(randomHood)
+                        : AssetImage('images/hoodierelease.png'),
+                  ),
+                  borderRadius: BorderRadius.circular(30.0),
+                  border: Border.all(
+                    color: _isOpen ? hoodieColors : Colors.transparent,
+                    width: 4,
+                  )),
             ),
-          ),ElevatedButton(
+          ),
+          ElevatedButton(
             onPressed: _buttonEnabled ? _disableButton : null,
-               child: SizedBox(
-                width: 60, 
-                child: Center(
+            child: SizedBox(
+              width: 60,
+              child: Center(
                   child: Text(
-                    _isOpen ? "Accept" : "50€",
-                    )
+                _isOpen ? "Accept" : "50€",
+              )),
+            ),
+            style: ButtonStyle(
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20.0)))),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(
+              top: 30.0,
+            ),
+            child: Center(
+              child: Container(
+                  width: double.infinity,
+                  height: 60,
+                  color: Colors.white10,
+                  child: Center(
+                    child: Text(
+                      'AVAILABLE HOODIES',
+                      style: TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.bold),
                     ),
-                    ),style: ButtonStyle(
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20.0)))),
-                    ),
-                    Padding(padding: const EdgeInsets.only(top: 30.0,),
-                    child: Center(child: Container(width: double.infinity, height: 60,
-                      color: Colors.white10,
-                      child: Center(child: Text('AVAILABLE HOODIES',
-                      style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-                      ),)
-                      ),
-                    ),
-                    ),
-                    Padding(padding: const EdgeInsets.symmetric(horizontal: 0.0),
-                      child: Container(width: double.infinity, height: 127.9,
-                      color: Color(0xFF333333),
-                      child: Row(children: [ 
-                        const SizedBox(width: 15),
-                        Tooltip(
-                          message: '5%',
-                          child: Image.asset('images/hood2.png'),
-                        ),
-                        SizedBox(width: 30),
-                        Tooltip(
-                          message: '17.5%',
-                          child: Image.asset('images/hood1.png'),
-                        ),
-                        SizedBox(width: 30), 
-                        Tooltip(
-                          message: '17.5%',
-                          child: Image.asset('images/hood6.png'),
-                        ),
-                      ]),
-                      ),
-                    ),
-                    Padding(padding: const EdgeInsets.symmetric(horizontal: 0.0),
-                      child: Container(width: double.infinity, height: 127.9,
-                      color: Color(0xFF333333),
-                      child: Row(children: [
-                        SizedBox(width: 15), 
-                        Tooltip(
-                          message: '20%',
-                          child: Image.asset('images/hood5.png'),
-                        ),
-                        SizedBox(width: 30), 
-                        Tooltip(
-                          message: '20%',
-                          child: Image.asset('images/hood4.png'),
-                        ),
-                        SizedBox(width: 30), 
-                        Tooltip(
-                          message: '20%',
-                          child: Image.asset('images/hood3.png'),
-                        ),
-                      ]),
-                      ),
-                    ),
-         ],
+                  )),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 0.0),
+            child: Container(
+              width: double.infinity,
+              height: 127.9,
+              color: Color(0xFF333333),
+              child: Row(children: [
+                const SizedBox(width: 15),
+                Tooltip(
+                  message: '5%',
+                  child: Image.asset('images/hood2.png'),
+                ),
+                SizedBox(width: 30),
+                Tooltip(
+                  message: '17.5%',
+                  child: Image.asset('images/hood1.png'),
+                ),
+                SizedBox(width: 30),
+                Tooltip(
+                  message: '17.5%',
+                  child: Image.asset('images/hood6.png'),
+                ),
+              ]),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 0.0),
+            child: Container(
+              width: double.infinity,
+              height: 127.9,
+              color: Color(0xFF333333),
+              child: Row(children: [
+                SizedBox(width: 15),
+                Tooltip(
+                  message: '20%',
+                  child: Image.asset('images/hood5.png'),
+                ),
+                SizedBox(width: 30),
+                Tooltip(
+                  message: '20%',
+                  child: Image.asset('images/hood4.png'),
+                ),
+                SizedBox(width: 30),
+                Tooltip(
+                  message: '20%',
+                  child: Image.asset('images/hood3.png'),
+                ),
+              ]),
+            ),
+          ),
+        ],
       ),
       selectedIndex: _selectedIndex,
       onItemTapped: (int index) {
